@@ -4,10 +4,10 @@
 
 % FIND functional/structural files
 % note: this will look for all data in these folders, irrespestive of the specific download subsets entered as command-line arguments
-NSUBJECTS=1;
+NSUBJECTS=6;
 cwd=pwd;
-FUNCTIONAL_FILE=cellstr(conn_dir('sub-01_func_sub-01_task-rest_bold.nii.gz'));
-STRUCTURAL_FILE=cellstr(conn_dir('sub-01_anat_sub-01_T1w.nii'));
+FUNCTIONAL_FILE=cellstr(conn_dir('sub-*_func_sub-*_task-rest_bold.nii.gz'));
+STRUCTURAL_FILE=cellstr(conn_dir('sub-*_anat_sub-*_T1w.nii'));
 if rem(length(FUNCTIONAL_FILE),NSUBJECTS),error('mismatch number of functional files %n', length(FUNCTIONAL_FILE));end
 if rem(length(STRUCTURAL_FILE),NSUBJECTS),error('mismatch number of anatomical files %n', length(FUNCTIONAL_FILE));end
 nsessions=length(FUNCTIONAL_FILE)/NSUBJECTS;
