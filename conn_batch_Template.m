@@ -11,10 +11,10 @@ STRUCTURAL_FILE=cellstr(conn_dir('sub-*_anat_sub-*_T1w.nii'));
 if rem(length(FUNCTIONAL_FILE),NSUBJECTS),error('mismatch number of functional files %n', length(FUNCTIONAL_FILE));end
 if rem(length(STRUCTURAL_FILE),NSUBJECTS),error('mismatch number of anatomical files %n', length(FUNCTIONAL_FILE));end
 nsessions=length(FUNCTIONAL_FILE)/NSUBJECTS;
-FUNCTIONAL_FILE=reshape(FUNCTIONAL_FILE,[NSUBJECTS,nsessions]);
+FUNCTIONAL_FILE=reshape(FUNCTIONAL_FILE,[nsessions, NSUBJECTS]);
 STRUCTURAL_FILE={STRUCTURAL_FILE{1:NSUBJECTS}};
-disp([num2str(size(FUNCTIONAL_FILE,1)),' subjects']);
-disp([num2str(size(FUNCTIONAL_FILE,2)),' sessions']);
+disp([num2str(size(FUNCTIONAL_FILE,1)),' sessions']);
+disp([num2str(size(FUNCTIONAL_FILE,2)),' subjects']);
 TR=3.56; % Repetition time
 
 
