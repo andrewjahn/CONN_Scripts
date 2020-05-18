@@ -30,7 +30,7 @@ batch.Setup.isnew=1;
 batch.Setup.nsubjects=NSUBJECTS;
 batch.Setup.RT=TR;                                        % TR (seconds)
 batch.Setup.functionals=repmat({{}},[NSUBJECTS,1]);       % Point to functional volumes for each subject/session
-for nsub=1:NSUBJECTS,for nses=1:nsessions,batch.Setup.functionals{nsub}{nses}{1}=FUNCTIONAL_FILE{nsub,nses}; end; end %note: each subject's data is defined by three sessions and one single (4d) file per session
+for nsub=1:NSUBJECTS,for nses=1:nsessions,batch.Setup.functionals{nsub}{nses}{1}=FUNCTIONAL_FILE{nses,nsub}; end; end %note: each subject's data is defined by three sessions and one single (4d) file per session
 batch.Setup.structurals=STRUCTURAL_FILE;                  % Point to anatomical volumes for each subject
 nconditions=nsessions;                                  % treats each session as a different condition (comment the following three lines and lines 84-86 below if you do not wish to analyze between-session differences)
 if nconditions==1
